@@ -14,13 +14,13 @@ export const Items = ()=>{
             <div className="row">
               <div className="col-lg-4">
                 <fieldset>
-                    <input type="text" name="keyword" className="searchText" placeholder="Type Something..." autocomplete="on" required/>
+                    <input type="text" name="keyword" className="searchText" placeholder="Type Something..." autoComplete="on" required/>
                 </fieldset>
               </div>
               <div className="col-lg-3">
                 <fieldset>
-                    <select name="Category" className="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>All Categories</option>
+                    <select name="Category" className="form-select" aria-label="Default select example" id="chooseCategory" >
+                        <option >All Categories</option>
                         <option type="checkbox" name="option1" value="Music">Music</option>
                         <option value="Digital">Digital</option>
                         <option value="Blockchain">Blockchain</option>
@@ -30,8 +30,8 @@ export const Items = ()=>{
               </div>
               <div className="col-lg-3">
                 <fieldset>
-                    <select name="Price" className="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>Available</option>
+                    <select name="Price" className="form-select" aria-label="Default select example" id="chooseCategory" >
+                        <option >Available</option>
                         <option value="Ending-Soon">Ending Soon</option>
                         <option value="Coming-Soon">Coming Soon</option>
                         <option value="Closed">Closed</option>

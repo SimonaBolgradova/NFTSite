@@ -1,14 +1,14 @@
-import { useContext } from "react"
-import { NavLink } from "react-router-dom"
-import { AuthContext } from "../../context/AuthContext"
+
+import { useAuthContext } from "../../context/AuthContext"
 // import styles from '../../public/assets/css/templatemo-liberty-market'
 
 
 
 export const Header = ()=>{
 
-    const {user} = useContext(AuthContext);
-console.log("user: "+user)
+    const { user } = useAuthContext();
+
+console.log("user-a: "+user.email)
     return (
   // <!-- ***** Header Area Start ***** --> */
   <header className="header-area header-sticky">
@@ -26,17 +26,18 @@ console.log("user: "+user)
                     <li><a href="/">Home</a></li>
                     <li><a href="explore">Explore</a></li>
                         {/* User */}
-                        {user 
+                        {user.email 
                         ? <div id ='user'>
-                            <li><a href="login">Login</a></li>
-                            <li><a  href="register">Register</a></li>
-                        </div>
-                        :  <div id ="guest">
-                        
-                        <li><a href="details">Item Details</a></li>
+                            
+                            <li><a href="details">Item Details</a></li>
                         <li><a href="author">Author</a></li>
                         <li><a href="create">Create Yours</a></li>
                         <li><a href="logout">Logout</a></li>
+                        </div>
+                        :  <div id ="guest">
+                        <li><a href="login">Login</a></li>
+                            <li><a  href="register">Register</a></li>
+                        
                         </div>
                     }                      
 

@@ -1,4 +1,22 @@
+import { useContext } from "react"
+import { CardContext } from "../../../context/CardContext"
+
+import * as cardService from '../../../services/cardService'
+
 export const CreateNFT = ()=>{
+
+  const {cardAdd} = useContext(CardContext);
+
+  const onSubmit = (e)=>{
+    e.preventDefault();
+
+    const cardData = Object.fromEntries(new FormData(e.target));
+
+    cardService.create(cardData)
+      .then(result=>{
+        cardAdd(result);
+      })
+  }
     return (
         <div className="create-nft">
  <div className="container">

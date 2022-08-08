@@ -34,37 +34,61 @@ export const Create = ()=>{
               <div className="col-lg-4">
                 <fieldset>
                   <label htmlFor="title">Item Title</label>
-                  <input type="title" name="title" id="title" placeholder="Ex. Lyon King" autoComplete="on" required/>
+                  <input 
+                      type="title" 
+                      name="title" 
+                      id="title" 
+                      placeholder="Ex. Lyon King" autoComplete="on" required/>
                 </fieldset>
               </div>
               <div className="col-lg-4">
                 <fieldset>
-                  <label htmlFor="description">Description htmlFor Item</label>
-                  <input type="description" name="description" id="description" placeholder="Give us your idea" autoComplete="on" required/>
+                  <label htmlFor="description">Description</label>
+                  <input 
+                  type="description" 
+                  name="description" 
+                  id="description" 
+                  placeholder="Give us your idea" 
+                  // autoComplete="on" 
+                  // required
+                  />
                 </fieldset>
               </div>
+              
               <div className="col-lg-4">
-                <fieldset>
-                  <label htmlFor="username">Your Username</label>
-                  <input type="username" name="username" id="username" placeholder="Ex. @alansmithee" autoComplete="on" required/>
-                </fieldset>
-              </div>
-              <div className="col-lg-6">
                 <fieldset>
                   <label htmlFor="price">Price Of Item</label>
-                  <input type="price" name="price" id="price" placeholder="Price depends on quality. Ex. 0.06 ETH" autoComplete="on" required/>
+                  <input 
+                  type="price" 
+                  name="price" 
+                  id="price" 
+                  placeholder="Price depends on quality. Ex. 0.06 ETH" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-6">
                 <fieldset>
                   <label htmlFor="royalities">Royalties</label>
-                  <input type="royalities" name="royalities" id="royalities" placeholder="Common royalties 1-25%" autoComplete="on" required/>
+                  <input 
+                  type="royalities" 
+                  name="royalities" 
+                  id="royalities" 
+                  placeholder="Common royalties 1-25%" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-6">
                 <fieldset>
-                  <label htmlFor="file">Your File</label>
-                  <input type="file" id="file" name="myfiles[]" multiple />
+                  <label htmlFor="imageUrl">Image URL</label>
+                  <input 
+                  type="imageUrl" 
+                  name="imageUrl" 
+                  id="imageUrl" 
+                  placeholder=" " 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-8">

@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { CardContext } from "../../../context/CardContext";
 import { CardItem } from "./cards/CardItem";
 
-export const CurrentlyMarket = (cards)=>{
+export const CurrentlyMarket = ()=>{
+  const { cards } = useContext(CardContext);
  
     return (
         <div className="currently-market">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-export const CardItem = (card)=>{
+export const CardItem = ({card})=>{
     return (
         <div className="col-lg-6 currently-market-item all msc">
            <div className="item">

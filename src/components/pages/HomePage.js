@@ -8,14 +8,14 @@ import { MainBanner } from "../sections/home/MainBanner";
 import { Preloader } from "../layouts/Preloader";
 
 
-export const HomePage = ({cards})=> {
+export const HomePage = ()=> {
     return (
       <>
         <Header/>
         <MainBanner/>
-        <Collections/>
+        {/* <Collections/> */}
         <CreateNFT/>
-        <CurrentlyMarket cards={cards}/>
+        {/* <CurrentlyMarket/> */}
         <Footer/>
         <Scripts/>        
       </>

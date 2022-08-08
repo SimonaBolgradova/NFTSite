@@ -8,6 +8,7 @@ export const CardContext = createContext();
 const cardReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_CARDS':
+            console.log(action)
             return action.payload.map(x => ({ ...x, comments: [] }));
         case 'ADD_CARD':
             return [...state, action.payload];
@@ -41,13 +42,13 @@ export const CardProvider = ({
             });
     }, []);
 
-    const selectcard = (cardId) => {
+    const selectedCard = (cardId) => {
         return cards.find(x => x._id === cardId) || {};
     };
 
-    const fetchcardDetails = (cardId, cardDetails) => {
+    const fetchCardDetails = (cardId, cardDetails) => {
         dispatch({
-            type: 'FETCH_card_DETAILS',
+            type: 'FETCH_CARD_DETAILS',
             payload: cardDetails,
             cardId,
         })
@@ -63,7 +64,7 @@ export const CardProvider = ({
 
     const cardAdd = (cardData) => {
         dispatch({
-            type: 'ADD_card',
+            type: 'ADD_CARD',
             payload: cardData,
         })
 
@@ -90,8 +91,8 @@ export const CardProvider = ({
             cardAdd,
             cardEdit,
             addComment,
-            fetchcardDetails,
-            selectcard,
+            fetchCardDetails,
+            selectedCard,
             cardRemove
         }}>
             {children}

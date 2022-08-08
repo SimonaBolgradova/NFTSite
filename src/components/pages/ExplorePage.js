@@ -2,7 +2,6 @@ import { Footer } from "../layouts/Footer"
 import { Header } from "../layouts/Header"
 import { Preloader } from "../layouts/Preloader"
 import { Scripts } from "../Scripts"
-import { HeadExplore } from "../sections/explore/HeadExplore"
 import { Items } from "../sections/explore/Items"
 import { TopSellers } from "../sections/explore/TopSellers"
 
@@ -10,8 +9,7 @@ import { TopSellers } from "../sections/explore/TopSellers"
 export const ExplorePage =()=>{
     return (
         <>        
-            <Header/>
-            <HeadExplore/>
+            <Header/>            
             <Items/>
             <TopSellers/>
             <Footer/>

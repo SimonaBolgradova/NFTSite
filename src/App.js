@@ -1,8 +1,9 @@
-import {  Routes , Route, useNavigate} from 'react-router-dom';
-import React, { Suspense} from 'react';
-import { useEffect, useState } from "react"
-import * as cardService from "./services/cardService"
-import { AuthContext } from './context/AuthContext';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import  { Suspense } from 'react';
+
+import { AuthProvider } from './context/AuthContext';
+import { CardProvider } from './context/CardContext';
+import PrivateRoute from './components/common/PrivateParts';
 
 import { ExplorePage } from './components/pages/ExplorePage';
 import { HomePage } from './components/pages/HomePage';
@@ -12,47 +13,34 @@ import { AuthorPage } from './components/pages/AuthorPage';
 import { RegisterPage } from './components/pages/RegisterPage';
 import { LoginPage } from './components/pages/LoginPage';
 import Logout from './components/pages/Logout';
-import PrivateRoute from './components/common/PrivateParts';
 
 function App() {
-  // const [cards,setCards]= useState([]);
-const [auth, setAuth] = useState({});
-const navigate = useNavigate();
-
-const userLogin = (authData)=>{
-  setAuth(authData)
-}
-const userLogout = () => {
-  setAuth({});
-};
-  // useEffect(()=>{
-  //   cardService.getAll()
-  //   .then(result=>{
-  //     setCards(result);
-  //   })
-  // },[])
+  
   return (
-    <AuthContext.Provider value = {{user: auth, userLogin, userLogout}}>
-    <>
-    <Routes>
-             
+    <AuthProvider>
+      <CardProvider>
+        <Routes>
           {/* <Route path="/" exact element={<HomePage card={cards}/>} /> */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-          <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/login" element={<LoginPage/>} />
 
+          <Route path="/create" element={(
+            <PrivateRoute>
+              <CreatePage />
+            </PrivateRoute>
+            )} />
           {/* <Route path="/explore" element={<ExplorePage card={cards}/>} /> */}
-          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/author" element={<AuthorPage />} />
           <Route element={<PrivateRoute />}>
             <Route path="/logout" element={<Logout />} />
           </Route>
-          <Route path="/explore/:id" element={<DetailsPage/>} />
-          <Route path="/create" element={<CreatePage/>} />
-          <Route path="/author" element={<AuthorPage/>} />
-    </Routes>
-    </>
-    </AuthContext.Provider>
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/explore/:id" element={<DetailsPage />} />
+        </Routes>
+      </CardProvider>
+    </AuthProvider>
   );
 }
 

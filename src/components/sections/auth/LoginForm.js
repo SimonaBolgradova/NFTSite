@@ -7,22 +7,22 @@ import * as authService from '../../../services/authService';
 export const LoginForm = () => {
   const {userLogin} = useContext(AuthContext);
   const navigate = useNavigate();
-
+console.log(userLogin)
   const onSubmit = (e) => {
     e.preventDefault();
 
     const {
-      username,
+      email,
       password
     } = Object.fromEntries(new FormData(e.target));
 
-    authService.login(username, password)
+    authService.login(email, password)
             .then(authData => {
                 userLogin(authData);
                 navigate('/');
             })
             .catch(() => {
-                navigate('/404');
+                navigate('/login');
             });
   }
   return (
@@ -40,14 +40,26 @@ export const LoginForm = () => {
               <div className="row">
                 <div className="col-lg-4">
                   <fieldset>
-                    <label htmlFor="username">Username</label>
-                    <input type="username" name="username" id="username" placeholder="@username" autoComplete="on" required />
+                    <label htmlFor="email">Username</label>
+                    <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="@email" 
+                    //autoComplete="on" required 
+                    />
                   </fieldset>
                 </div>
                 <div className="col-lg-4">
                   <fieldset>
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Password" autoComplete="on" required />
+                    <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Password" 
+                    //autoComplete="on" required 
+                    />
                   </fieldset>
                 </div>
 

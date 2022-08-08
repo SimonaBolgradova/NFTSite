@@ -59,8 +59,8 @@ export const Item = (cards)=>{
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                      <option selected>Sort By: Latest</option>
+                  <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" >
+                      <option >Sort By: Latest</option>
                       <option type="checkbox" name="option1" value="old">Sort By: Oldest</option>
                       <option value="low">Sort By: Lowest</option>
                       <option value="high">Sort By: Highest</option>

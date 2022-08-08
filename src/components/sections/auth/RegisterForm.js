@@ -12,15 +12,17 @@ import { withAuth } from "../../../context/AuthContext";
 
         const formData = new FormData(e.target);
 
-        const username = formData.get('username');
+        const email = formData.get('email');
         const password = formData.get('password');
         const repeatPassword = formData.get('confirm-password');
 
         if (password !== repeatPassword) {
             return;
+        }else if (formData.get('password')<18){
+          return;
         }
-
-        authService.register(username, password)
+console.log('VLIZAM');
+        authService.register(email, password)
             .then(authData => {
                 auth.userLogin(authData);
                 navigate('/');
@@ -41,32 +43,62 @@ import { withAuth } from "../../../context/AuthContext";
             <div className="row">
               <div className="col-lg-4">
                 <fieldset>
-                  <label htmlFor="username">Username</label>
-                  <input type="username" name="username" id="username" placeholder="Ex. Lyon King" autoComplete="on" required/>
+                  <label htmlFor="email">Username</label>
+                  <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  placeholder="Ex. Lyon King" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-4">
                 <fieldset>
                   <label htmlFor="password">Password</label>
-                  <input type="password" name="password" id="password" placeholder="Password" autoComplete="on" required/>
+                  <input 
+                  type="password" 
+                  name="password" 
+                  id="password" 
+                  placeholder="Password" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-4">
                 <fieldset>
                   <label htmlFor="repeatPassword">Repead Password</label>
-                  <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repead Password" autoComplete="on" required/>
+                  <input 
+                  type="password" 
+                  name="repeatPassword" 
+                  id="repeatPassword" 
+                  placeholder="Repead Password" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-6">
                 <fieldset>
                   <label htmlFor="address">Address</label>
-                  <input type="address" name="address" id="address" placeholder="Address" autoComplete="on" required/>
+                  <input 
+                  type="address" 
+                  name="address" 
+                  id="address" 
+                  placeholder="Address" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-6">
                 <fieldset>
                   <label htmlFor="age">Age</label>
-                  <input type="age" name="age" id="age" placeholder="Can't be under 18" autoComplete="on" required/>
+                  <input 
+                  type="age" 
+                  name="age" 
+                  id="age" 
+                  placeholder="Can't be under 18" 
+                  //autoComplete="on" required
+                  />
                 </fieldset>
               </div>
               <div className="col-lg-8">
