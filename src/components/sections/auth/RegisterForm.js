@@ -15,18 +15,22 @@ import { withAuth } from "../../../context/AuthContext";
         const email = formData.get('email');
         const password = formData.get('password');
         const repeatPassword = formData.get('confirm-password');
+        const authorImage = formData.get('authorImage');
 
         if (password !== repeatPassword) {
             return;
         }else if (formData.get('password')<18){
           return;
         }
-console.log('VLIZAM');
-        authService.register(email, password)
+        authService.register(email, password,authorImage)
             .then(authData => {
                 auth.userLogin(authData);
                 navigate('/');
-            });
+            })
+            .catch((err) => {
+              console.log(err);
+              navigate('/404');
+          });
     }
     return (
         <div className="item-details-page">
@@ -43,12 +47,12 @@ console.log('VLIZAM');
             <div className="row">
               <div className="col-lg-4">
                 <fieldset>
-                  <label htmlFor="email">Username</label>
+                  <label htmlFor="email">Email</label>
                   <input 
                   type="email" 
                   name="email" 
                   id="email" 
-                  placeholder="Ex. Lyon King" 
+                  placeholder="Ex. simona@abv.bg" 
                   //autoComplete="on" required
                   />
                 </fieldset>
@@ -77,7 +81,7 @@ console.log('VLIZAM');
                   />
                 </fieldset>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-4">
                 <fieldset>
                   <label htmlFor="address">Address</label>
                   <input 
@@ -89,7 +93,7 @@ console.log('VLIZAM');
                   />
                 </fieldset>
               </div>
-              <div className="col-lg-6">
+              <div className="col-lg-4">
                 <fieldset>
                   <label htmlFor="age">Age</label>
                   <input 
@@ -101,7 +105,19 @@ console.log('VLIZAM');
                   />
                 </fieldset>
               </div>
-              <div className="col-lg-8">
+              <div className="col-lg-4">
+                <fieldset>
+                  <label htmlFor="age">Image</label>
+                  <input 
+                  type="authorImage" 
+                  name="authorImage" 
+                  id="authorImage" 
+                  placeholder="Author Image" 
+                  //autoComplete="on" required
+                  />
+                </fieldset>
+              </div>
+              <div className="col-lg-12">
                 <fieldset>
                   <button type="submit" id="htmlForm-submit" className="orange-button">Register</button>
                 </fieldset>

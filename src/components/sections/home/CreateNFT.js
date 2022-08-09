@@ -11,7 +11,7 @@ export const CreateNFT = ()=>{
     e.preventDefault();
 
     const cardData = Object.fromEntries(new FormData(e.target));
-
+    
     cardService.create(cardData)
       .then(result=>{
         cardAdd(result);

@@ -13,9 +13,9 @@ export const HomePage = ()=> {
       <>
         <Header/>
         <MainBanner/>
-        {/* <Collections/> */}
-        <CreateNFT/>
-        {/* <CurrentlyMarket/> */}
+        <Collections/>
+        
+        <CurrentlyMarket/>
         <Footer/>
         <Scripts/>        
       </>

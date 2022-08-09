@@ -4,15 +4,16 @@ import { CardContext } from '../../../context/CardContext';
 import * as cardService from '../../../services/cardService';
 
 export const Create = ()=>{
-
+  const user = localStorage.getItem('auth');
+  const auth = JSON.parse(user || '{}');
   const { cardAdd } = useContext(CardContext);
 
     const onSubmit = (e) => {
         e.preventDefault();
 
         const cardData = Object.fromEntries(new FormData(e.target));
-
-        cardService.create(cardData)
+      const data = {...cardData,email:auth.email,authorImage: auth.authorImage}
+        cardService.create(data)
             .then(result => {
                 cardAdd(result)
             });
